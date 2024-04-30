@@ -27,9 +27,7 @@ class TestOne(BaseClass):
         error_message_element = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, ".form-error"))
         )
-        print("Test text")
-        print("Test text")
-        print("Test text")
+
         print("Test text")
         assert "Email and password combination not valid" in error_message_element.text
 
