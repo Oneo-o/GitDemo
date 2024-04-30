@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="12.767" timestamp="2024-04-25T10:49:08.652608" hostname="DESKTOP-IASHMIJ"><testcase classname="test_login.TestOne" name="test_login[get_data0]" time="12.141"><failure message="assert 'Emaila and password combination not valid' in 'Email and password combination not valid'&#10; +  where 'Email and password combination not valid' = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;ae47520ce6e0f3f1f39dc05632444c5e&quot;, element=&quot;f.044133F2183DE998EF7A3972853F49BA.d.8FBF47F48BFCCEEB2302B68F581DE08E.e.146&quot;)&gt;.text">self = &lt;tests.test_login.TestOne object at 0x000001FA18226030&gt;
+get_data = {'email': 'example@example.ex', 'password': 'Zz123456'}
+
+    def test_login(self, get_data):
+        log = self.get_logger()
+        login_page = LoginPage(self.driver)
+        email_field = login_page.get_email_field()
+        email_field.send_keys(get_data["email"])
+        log.info("Email is successfully filed")
+        password_field = login_page.get_password_field()
+        password_field.send_keys(get_data["password"])
+        log.info("Password is successfully filed")
+        login_page.get_login_button()
+        error_message_element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, ".form-error"))
+        )
+    
+&gt;       assert "Emaila and password combination not valid" in error_message_element.text
+E       assert 'Emaila and password combination not valid' in 'Email and password combination not valid'
+E        +  where 'Email and password combination not valid' = &lt;selenium.webdriver.remote.webelement.WebElement (session="ae47520ce6e0f3f1f39dc05632444c5e", element="f.044133F2183DE998EF7A3972853F49BA.d.8FBF47F48BFCCEEB2302B68F581DE08E.e.146")&gt;.text
+
+test_login.py:31: AssertionError</failure></testcase><testcase classname="test_login.TestOne" name="test_login[get_data1]" time="0.253"><failure message="assert 'Emaila and password combination not valid' in 'Email and password combination not valid'&#10; +  where 'Email and password combination not valid' = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;ae47520ce6e0f3f1f39dc05632444c5e&quot;, element=&quot;f.044133F2183DE998EF7A3972853F49BA.d.8FBF47F48BFCCEEB2302B68F581DE08E.e.146&quot;)&gt;.text">self = &lt;tests.test_login.TestOne object at 0x000001FA1826B410&gt;
+get_data = {'email': 'example2@example.ex', 'password': 'Zz123456'}
+
+    def test_login(self, get_data):
+        log = self.get_logger()
+        login_page = LoginPage(self.driver)
+        email_field = login_page.get_email_field()
+        email_field.send_keys(get_data["email"])
+        log.info("Email is successfully filed")
+        password_field = login_page.get_password_field()
+        password_field.send_keys(get_data["password"])
+        log.info("Password is successfully filed")
+        login_page.get_login_button()
+        error_message_element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, ".form-error"))
+        )
+    
+&gt;       assert "Emaila and password combination not valid" in error_message_element.text
+E       assert 'Emaila and password combination not valid' in 'Email and password combination not valid'
+E        +  where 'Email and password combination not valid' = &lt;selenium.webdriver.remote.webelement.WebElement (session="ae47520ce6e0f3f1f39dc05632444c5e", element="f.044133F2183DE998EF7A3972853F49BA.d.8FBF47F48BFCCEEB2302B68F581DE08E.e.146")&gt;.text
+
+test_login.py:31: AssertionError</failure></testcase></testsuite></testsuites>
