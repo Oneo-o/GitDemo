@@ -18,6 +18,8 @@ print(sheet.cell(row=2, column=2).value)
 print(sheet.max_row)
 print(sheet.max_column)
 print(sheet.max_column)
+print(sheet.max_column)
+print(sheet.max_column)
 # Short way to get value of cell
 print(sheet['A5'].value)
 
