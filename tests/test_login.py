@@ -29,6 +29,7 @@ class TestOne(BaseClass):
         )
 
         print("Test text")
+        print("Test text")
         assert "Email and password combination not valid" in error_message_element.text
 
         # visitor_registration_page = login_page.get_visitor_registration()
